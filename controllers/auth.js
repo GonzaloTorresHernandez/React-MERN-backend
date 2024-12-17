@@ -1,5 +1,5 @@
 const { response } = require('express');
-const Usuario = require('../Models/Usuario');
+const Usuario = require('../models/Usuario');
 const bcrypt = require('bcryptjs');
 const { generarJWT } = require('../helpers/jwt');
 
