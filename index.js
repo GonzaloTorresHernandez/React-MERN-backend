@@ -1,3 +1,5 @@
+const path = require('path');
+
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
@@ -23,7 +25,10 @@ app.use( express.json() );
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 
-
+// par adefinir que cualquier ruta que no este definida envie a esta respuesta
+app.use('*', (req, res) => {
+    res.sendFile( path.join( __dirname, 'public/index.html'))
+});
 
 
 const port = process.env.PORT;
